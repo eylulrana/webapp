@@ -6,6 +6,7 @@ V1
 - [x] Numara kullanılarak sure seçme
 - [x] Farklı mealler seçme
 - [ ] Sure seçildiğinde kuran tekrar çalışmasın
+- [x] Yayınlama
 
 V2
 
