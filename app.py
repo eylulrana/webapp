@@ -33,7 +33,7 @@ df['NoPunc_Verse'] = df['Verse'].apply(remove_punctuation)
 
 # stopwords.txt dosyasından stopwords listesini oku
 with open('stopwords.txt', 'r') as f:
-    stop_words = [line.strip() for line in f]
+    stop_words = {line.strip() for line in f}  # Set olarak oku
 
 # stop_words = set(stopwords.words('english'))
 additional_stop_words = {"lo", "ye", "hath", "unto", "therein"}
