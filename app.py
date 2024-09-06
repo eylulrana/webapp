@@ -7,7 +7,7 @@ from collections import Counter
 import itertools
 import nltk
 from nltk.corpus import stopwords
-nltk.download('stopwords')
+# nltk.download('stopwords')
 
 # Quranic Insights
 st.title('Quranic Insights')
