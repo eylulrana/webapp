@@ -34,9 +34,10 @@ translators = {
 }
 
 # If running for the first time, initialize the required fields in session_state
+if 'wordcloud_fig' not in st.session_state:
+    st.session_state['wordcloud_fig'] = None
 if 'selected_translator' not in st.session_state:
     st.session_state['selected_translator'] = None
-    st.session_state['wordcloud_updated'] = False
 
 # TRANSLATOR SELECTION
 selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()))
