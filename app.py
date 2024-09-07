@@ -14,7 +14,7 @@ import numpy as np
 
 
 # Quranic Insights
-st.title('Quranic Insights')
+st.markdown(' # Quranic Insights')
 
 # Çeviri dosyalarını yükleme
 translators = {
