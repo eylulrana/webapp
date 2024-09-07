@@ -15,13 +15,12 @@ import home
 
 
 # Quranic Insights
-st.markdown("# Quranic Insights")
+st.sidebar.markdown("# Quranic Insights")
 
 st.sidebar.markdown(""" ### How to Use
 **Word Cloud** visualizes the most frequently mentioned words in the Quran and the surah of your choice by sizing 
 them according to their frequency of occurrence.
 #
-# 
 ### Settings""")
 
 

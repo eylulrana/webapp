@@ -13,16 +13,6 @@ import numpy as np
 
 def app():
 
-    st.sidebar.markdown(""" ### How to Use
-    **Word Cloud** visualizes the most frequently mentioned words in the Quran and the surah of your choice by sizing 
-    them according to their frequency of occurrence.
-    #
-    # 
-    # 
-    ### Settings
-    """)
-
-
     translators = {
         'Arthur J. Arberry': 'translations/English_Arthur_J_Arberry.csv',
         'Marmaduke Pickthall': 'translations/English_Marmaduke_Pickthall.csv',
