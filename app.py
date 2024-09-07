@@ -76,13 +76,16 @@ word_freq = Counter(all_words)
 st.header('Quran Word Cloud')
 
 text_data = ' '.join(all_words)
-wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text_data)
 
-plt.figure(figsize=(10, 5))
-plt.imshow(wordcloud, interpolation='bilinear')
-plt.axis('off')
+if st.session_state['wordcloud_updated']:
+    wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text_data)
 
-st.pyplot(plt)
+    plt.figure(figsize=(10, 5))
+    plt.imshow(wordcloud, interpolation='bilinear')
+    plt.axis('off')
+    st.pyplot(plt)
+    
+    st.session_state['wordcloud_updated'] = False
 
 
 
@@ -97,7 +100,6 @@ wordcloud = WordCloud(width=800, height=400, background_color='white').generate(
 plt.figure(figsize=(10, 5))
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis('off')
-
 st.pyplot(plt)
 
 
