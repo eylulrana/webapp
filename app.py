@@ -14,7 +14,7 @@ import numpy as np
 
 
 # Quranic Insights
-st.title('Quranic Insights')
+st.markdown("# Quranic Insights")
 
 st.sidebar.markdown(""" ### How to Use
 **Word Cloud** visualizes the most frequently mentioned words in the Quran or the surah of your choice by sizing 
@@ -24,10 +24,8 @@ them according to their frequency of occurrence.
 # 
 # Settings
 """)
-# Bu kısma **bold** metin, *italik* metin ve [bağlantı](https://www.streamlit.io) ekleyebilirsiniz.
+# *italik* metin ve [bağlantı](https://www.streamlit.io) ekleyebilirsiniz.
 
-
-# Çeviri dosyalarını yükleme
 translators = {
     'Arthur J. Arberry': 'translations/English_Arthur_J_Arberry.csv',
     'Marmaduke Pickthall': 'translations/English_Marmaduke_Pickthall.csv',
@@ -35,9 +33,19 @@ translators = {
     'Yusuf Ali': 'translations/English_Yusuf_Ali.csv'
 }
 
+# If running for the first time, initialize the required fields in session_state
+if 'selected_translator' not in st.session_state:
+    st.session_state['selected_translator'] = None
+    st.session_state['wordcloud_updated'] = False
+
 # TRANSLATOR SELECTION
 selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()))
 df = pd.read_csv(translators[selected_translator])
+
+# Update word cloud if translator selection has changed
+if selected_translator != st.session_state['selected_translator']:
+    st.session_state['selected_translator'] = selected_translator
+    st.session_state['wordcloud_updated'] = True
 
 
 # STOPWORDS REMOVAL
@@ -68,14 +76,11 @@ word_freq = Counter(all_words)
 st.header('Quran Word Cloud')
 
 text_data = ' '.join(all_words)
-# Temadan uygun arka plan rengini alalım
-background_color = st.get_option("theme.backgroundColor")
 wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text_data)
 
 plt.figure(figsize=(10, 5))
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis('off')
-plt.show()
 
 st.pyplot(plt)
 
@@ -87,7 +92,6 @@ selected_surah = st.selectbox("Surah Number:", df['Surah'].unique())
 
 surah_data = df[df['Surah'] == selected_surah]
 text_data = ' '.join(surah_data['Verse'])
-
 wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text_data)
 
 plt.figure(figsize=(10, 5))
@@ -109,7 +113,7 @@ fig = px.scatter(df_word_freq, x='Word', y='Frequency', size='Frequency', color=
 st.plotly_chart(fig)
 
 
-# Bubble Chart
+# Sankey Diagram
 st.header('Quran Sankey Diagram')
 import plotly.graph_objects as go
 
