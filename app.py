@@ -10,18 +10,6 @@ from nltk.corpus import stopwords
 # nltk.download('stopwords')
 
 
-# Arka plan rengini kaydetmek için session_state kullanıyoruz
-if 'background_color' not in st.session_state:
-    st.session_state['background_color'] = 'white'
-
-# Tema seçenekleri için butonlar
-if st.button("Switch to Dark Mode"):
-    st.session_state['background_color'] = 'black'
-if st.button("Switch to Light Mode"):
-    st.session_state['background_color'] = 'white'
-
-
-
 # Quranic Insights
 st.title('Quranic Insights')
 
@@ -69,7 +57,7 @@ st.title('Quran Word Cloud')
 text_data = ' '.join(all_words)
 # Temadan uygun arka plan rengini alalım
 background_color = st.get_option("theme.backgroundColor")
-wordcloud = WordCloud(width=800, height=400, background_color=st.session_state['background_color']).generate(text_data)
+wordcloud = WordCloud(width=800, height=400, background_color='white']).generate(text_data)
 
 plt.figure(figsize=(10, 5))
 plt.clf()
@@ -77,8 +65,7 @@ plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis('off')
 plt.show()
 
-# st.pyplot(plt)
-st.pyplot(plt.gcf())
+st.pyplot(plt)
 
 
 
@@ -89,14 +76,13 @@ selected_surah = st.selectbox("Surah Number:", df['Surah'].unique())
 surah_data = df[df['Surah'] == selected_surah]
 text_data = ' '.join(surah_data['Verse'])
 
-wordcloud = WordCloud(width=800, height=400, background_color=background_color).generate(text_data)
+wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text_data)
 
 plt.figure(figsize=(10, 5))
 plt.clf()
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis('off')
 
-# st.pyplot(plt)
-st.pyplot(plt.gcf())
+st.pyplot(plt)
 
 # df
