@@ -50,8 +50,6 @@ df['NoSW_Verse'] = df['NoPunc_Verse'].apply(lambda x: ' '.join([word for word in
 all_words = list(itertools.chain(*df['NoSW_Verse'].str.split()))
 word_freq = Counter(all_words)
 
-print(word_freq.most_common(10))
-
 
 
 # Quran Word Cloud
@@ -87,10 +85,11 @@ plt.axis('off')
 st.pyplot(plt)
 
 
-
+most_common_15 = word_freq.most_common(15)
 
 # Word ve frekansları bir DataFrame'e dönüştürün
-df_word_freq = pd.DataFrame(word_freq.items(), columns=['Word', 'Frequency'])
+df_word_freq = pd.DataFrame(most_common_15, columns=['Word', 'Frequency'])
+# df_word_freq = pd.DataFrame(word_freq.items(), columns=['Word', 'Frequency'])
 
 # Plotly ile balon grafiği oluştur
 fig = px.scatter(df_word_freq, x='Word', y='Frequency', size='Frequency', color='Word',
@@ -98,6 +97,7 @@ fig = px.scatter(df_word_freq, x='Word', y='Frequency', size='Frequency', color=
 
 # Streamlit'te göster
 st.plotly_chart(fig)
+
 
 
 
