@@ -10,3 +10,6 @@ from nltk.corpus import stopwords
 import plotly.express as px
 import seaborn as sns
 import numpy as np
+
+def app():
+    st.title('Sure Analiz Sayfası')
