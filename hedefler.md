@@ -11,6 +11,8 @@ V1
 - [ ] Açıklama ekleme
 - [ ] Word cloud görüntü seçimi
 - [ ] Çok sayfalı hale getirip sure analizini diğer sayfaya taşıma
+- [ ] Gözüken site isim ve sembolü değiştirme
+- [ ] Sure seçimine numaranın yanında isim de ekleme
 
 V2
 
