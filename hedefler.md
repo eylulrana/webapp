@@ -15,4 +15,3 @@ V2
 - [ ] Duygu analizi
 - [ ] Cümle tipleri istatistiği: soru cümlesi, ünlem, sözde soru...
 - [ ] Word cloud görüntü seçimi
-- [ ] Word cloud renginin tema rengine göre değişmesi

@@ -7,6 +7,7 @@ from collections import Counter
 import itertools
 import nltk
 from nltk.corpus import stopwords
+import plotly.express as px
 # nltk.download('stopwords')
 
 
@@ -82,5 +83,22 @@ plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis('off')
 
 st.pyplot(plt)
+
+
+
+
+# Örnek veri
+df2 = pd.DataFrame({
+    "kelimeler": ['kelime1', 'kelime2', 'kelime3', 'kelime4'],
+    "frekans": [50, 30, 20, 15],
+    "etki": [100, 200, 50, 80]
+})
+# Balon grafiği oluştur
+fig = px.scatter(df2, x="kelimeler", y="frekans", size="etki", color="kelimeler", hover_name="kelimeler")
+
+# Streamlit'te göster
+st.plotly_chart(fig)
+
+
 
 # df
