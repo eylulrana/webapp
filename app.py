@@ -9,18 +9,18 @@ import nltk
 from nltk.corpus import stopwords
 # nltk.download('stopwords')
 
-# Tema seçenekleri
-dark_mode = st.button("Switch to Dark Mode")
-light_mode = st.button("Switch to Light Mode")
 
-# Başlangıç arka plan rengini tanımla
-background_color = "white"
+# Arka plan rengini kaydetmek için session_state kullanıyoruz
+if 'background_color' not in st.session_state:
+    st.session_state['background_color'] = 'white'
 
-# Tema kontrolü: butona göre tema değiştir
-if dark_mode:
-    background_color = "black"
-elif light_mode:
-    background_color = "white"
+# Tema seçenekleri için butonlar
+if st.button("Switch to Dark Mode"):
+    st.session_state['background_color'] = 'black'
+if st.button("Switch to Light Mode"):
+    st.session_state['background_color'] = 'white'
+
+
 
 # Quranic Insights
 st.title('Quranic Insights')
