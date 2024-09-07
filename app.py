@@ -85,10 +85,10 @@ plt.axis('off')
 st.pyplot(plt)
 
 
-most_common_15 = word_freq.most_common(15)
+most_common_25 = word_freq.most_common(25)
 
 # Word ve frekansları bir DataFrame'e dönüştürün
-df_word_freq = pd.DataFrame(most_common_15, columns=['Word', 'Frequency'])
+df_word_freq = pd.DataFrame(most_common_25, columns=['Word', 'Frequency'])
 # df_word_freq = pd.DataFrame(word_freq.items(), columns=['Word', 'Frequency'])
 
 # Plotly ile balon grafiği oluştur
@@ -100,16 +100,16 @@ st.plotly_chart(fig)
 
 
 
-
-# Örnek veri
-data = np.random.rand(10, 10)
+# Kelime frekanslarını matris formuna getirin (örnek, diagonal heatmap)
+df_heatmap = pd.DataFrame([x[1] for x in most_common_25], index=[x[0] for x in most_common_25], columns=['Frequency'])
 
 # Isı haritası oluştur
 fig, ax = plt.subplots()
-sns.heatmap(data, ax=ax)
+sns.heatmap(df_heatmap, annot=True, cmap='YlGnBu', ax=ax)
 
 # Streamlit'te göster
 st.pyplot(fig)
+
 
 
 import plotly.graph_objects as go
