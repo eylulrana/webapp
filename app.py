@@ -9,6 +9,9 @@ import nltk
 from nltk.corpus import stopwords
 # nltk.download('stopwords')
 
+if st.button("Update Theme"):
+    background_color = st.get_option("theme.backgroundColor")
+    
 # Quranic Insights
 st.title('Quranic Insights')
 
