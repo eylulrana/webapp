@@ -72,12 +72,13 @@ background_color = st.get_option("theme.backgroundColor")
 wordcloud = WordCloud(width=800, height=400, background_color=st.session_state['background_color']).generate(text_data)
 
 plt.figure(figsize=(10, 5))
+plt.clf()
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis('off')
 plt.show()
 
-st.pyplot(plt)
-
+# st.pyplot(plt)
+st.pyplot(plt.gcf())
 
 
 
@@ -91,9 +92,11 @@ text_data = ' '.join(surah_data['Verse'])
 wordcloud = WordCloud(width=800, height=400, background_color=background_color).generate(text_data)
 
 plt.figure(figsize=(10, 5))
+plt.clf()
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis('off')
 
-st.pyplot(plt)
+# st.pyplot(plt)
+st.pyplot(plt.gcf())
 
-df
+# df
