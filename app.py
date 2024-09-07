@@ -14,7 +14,9 @@ import numpy as np
 
 
 # Quranic Insights
-st.markdown(" # Quranic Insights")
+st.title('Quranic Insights')
+
+st.sidebar.title("Settings")
 
 # Çeviri dosyalarını yükleme
 translators = {
@@ -24,7 +26,7 @@ translators = {
 }
 
 # TRANSLATOR SELECTION
-selected_translator = st.selectbox("Translator:", list(translators.keys()))
+selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()))
 df = pd.read_csv(translators[selected_translator])
 
 
