@@ -70,7 +70,7 @@ st.pyplot(plt)
 
 
 # Surah Word Cloud
-st.title('Surah Word Cloud')
+st.header('Surah Word Cloud')
 selected_surah = st.selectbox("Surah Number:", df['Surah'].unique())
 
 surah_data = df[df['Surah'] == selected_surah]
@@ -86,7 +86,7 @@ st.pyplot(plt)
 
 
 # Bubble Chart
-st.title('Quran Bubble Chart')
+st.header('Quran Bubble Chart')
 most_common_25 = word_freq.most_common(25)
 df_word_freq = pd.DataFrame(most_common_25, columns=['Word', 'Frequency'])
 # df_word_freq = pd.DataFrame(word_freq.items(), columns=['Word', 'Frequency'])
@@ -97,16 +97,14 @@ fig = px.scatter(df_word_freq, x='Word', y='Frequency', size='Frequency', color=
 st.plotly_chart(fig)
 
 
-
+# Bubble Chart
+st.header('Quran Sankey Diagram')
 import plotly.graph_objects as go
 
 # Kelime çiftleri (source → target) oluşturun
 word_pairs = [(all_words[i], all_words[i+1]) for i in range(len(all_words)-1)]
 
-# Kelime çiftlerinin frekansını bulun
 pair_freq = Counter(word_pairs)
-
-# En sık geçen 10 kelime çiftini seçin
 most_common_pairs = pair_freq.most_common(10)
 
 # Sankey diyagramı için verileri hazırlayın
@@ -135,5 +133,4 @@ fig = go.Figure(go.Sankey(
         value=values
     )))
 
-# Sankey grafiğini Streamlit'te göster
 st.plotly_chart(fig)
