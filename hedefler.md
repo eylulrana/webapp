@@ -10,7 +10,8 @@ V1
 
 V2
 
-- [ ] Seçim kısmını side-bar'a alma
+- [x] Seçim kısmını sidebar'a alma
+- [ ] Açıklama ekleme
 - [ ] Farklı diller seçme
 - [ ] Ayet ve sure uzunluğu istatistiği (ortalama ve varyans)
 - [ ] Duygu analizi

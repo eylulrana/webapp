@@ -22,7 +22,8 @@ st.sidebar.title("Settings")
 translators = {
     'Arthur J. Arberry': 'English_Arthur_J_Arberry.csv',
     'Marmaduke Pickthall': 'English_Marmaduke_Pickthall.csv',
-    'Muhammad Tahir-ul-Qadri': 'English_Muhammad_Tahir-ul-Qadri.csv'
+    'Muhammad Tahir-ul-Qadri': 'English_Muhammad_Tahir-ul-Qadri.csv',
+    'Yusuf Ali': 'English_Yusuf_Ali.csv'
 }
 
 # TRANSLATOR SELECTION
@@ -42,7 +43,7 @@ with open('stopwords.txt', 'r') as f:
     stop_words = {line.strip() for line in f}  # Set olarak oku
 
 # stop_words = set(stopwords.words('english'))
-additional_stop_words = {"lo", "ye", "hath", "unto", "therein", "upon", "ie"}
+additional_stop_words = {"lo", "ye", "hath", "unto", "therein", "upon", "ie", "o"}
 #, "thee", "thy", "thou", "shall", "may"
 
 custom_stop_words = stop_words.union(additional_stop_words)
@@ -73,7 +74,7 @@ st.pyplot(plt)
 
 # Surah Word Cloud
 st.header('Surah Word Cloud')
-selected_surah = st.sidebar.selectbox("Surah Number:", df['Surah'].unique())
+selected_surah = st.selectbox("Surah Number:", df['Surah'].unique())
 
 surah_data = df[df['Surah'] == selected_surah]
 text_data = ' '.join(surah_data['Verse'])
