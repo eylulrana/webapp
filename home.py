@@ -12,8 +12,6 @@ import seaborn as sns
 import numpy as np
 
 def app():
-    # Quranic Insights
-    st.markdown("# Quranic Insights")
 
     st.sidebar.markdown(""" ### How to Use
     **Word Cloud** visualizes the most frequently mentioned words in the Quran and the surah of your choice by sizing 
@@ -23,7 +21,6 @@ def app():
     # 
     ### Settings
     """)
-    # *italik* metin
 
 
     translators = {
@@ -94,19 +91,6 @@ def app():
     if st.session_state['wordcloud_fig'] is not None:
         st.pyplot(st.session_state['wordcloud_fig'])
 
-
-    # Surah Word Cloud
-    st.header('Surah Word Cloud')
-    selected_surah = st.selectbox("Surah Number:", df['Surah'].unique())
-
-    surah_data = df[df['Surah'] == selected_surah]
-    text_data = ' '.join(surah_data['Verse'])
-    wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text_data)
-
-    plt.figure(figsize=(10, 5))
-    plt.imshow(wordcloud, interpolation='bilinear')
-    plt.axis('off')
-    st.pyplot(plt)
 
 
     # Bubble Chart
