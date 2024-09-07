@@ -10,6 +10,7 @@ V1
 - [x] Sure seçildiğinde kuran tekrar çalışmasın
 - [ ] Açıklama ekleme
 - [ ] Word cloud görüntü seçimi
+- [ ] Çok sayfalı hale getirip sure analizini diğer sayfaya taşıma
 
 V2
 
