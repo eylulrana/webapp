@@ -60,7 +60,6 @@ background_color = st.get_option("theme.backgroundColor")
 wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text_data)
 
 plt.figure(figsize=(10, 5))
-plt.clf()
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis('off')
 plt.show()
@@ -79,7 +78,6 @@ text_data = ' '.join(surah_data['Verse'])
 wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text_data)
 
 plt.figure(figsize=(10, 5))
-plt.clf()
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis('off')
 
