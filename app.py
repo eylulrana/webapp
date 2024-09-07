@@ -53,7 +53,7 @@ word_freq = Counter(all_words)
 
 
 # Quran Word Cloud
-st.title('Quran Word Cloud')
+st.header('Quran Word Cloud')
 
 text_data = ' '.join(all_words)
 # Temadan uygun arka plan rengini alalım
