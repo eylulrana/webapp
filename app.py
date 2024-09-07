@@ -23,7 +23,6 @@ them according to their frequency of occurrence.
 # 
 # 
 ### Settings
-#
 """)
 # *italik* metin ve [bağlantı](https://www.streamlit.io) ekleyebilirsiniz.
 
@@ -44,7 +43,9 @@ if 'selected_translator' not in st.session_state:
 selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()))
 df = pd.read_csv(translators[selected_translator])
 
-st.sidebar.markdown("For more information visit [here](https://www.streamlit.io)")
+st.sidebar.markdown("""
+#
+For more information visit [here](https://www.streamlit.io)""")
 
 
 # STOPWORDS REMOVAL
