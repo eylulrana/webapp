@@ -26,7 +26,6 @@ them according to their frequency of occurrence.
 """)
 # Bu kısma **bold** metin, *italik* metin ve [bağlantı](https://www.streamlit.io) ekleyebilirsiniz.
 
-st.sidebar.markdown("  # Settings")
 
 # Çeviri dosyalarını yükleme
 translators = {
