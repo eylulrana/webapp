@@ -114,4 +114,22 @@ sns.heatmap(data, ax=ax)
 st.pyplot(fig)
 
 
+import plotly.graph_objects as go
+
+# Örnek veri
+fig = go.Figure(go.Sankey(
+    node=dict(
+        label=["Kelime 1", "Kelime 2", "Kelime 3", "Kelime 4"],
+        color=["blue", "red", "green", "yellow"]
+    ),
+    link=dict(
+        source=[0, 1, 0, 2],
+        target=[2, 3, 3, 1],
+        value=[8, 4, 2, 8]
+    )))
+
+# Streamlit'te göster
+st.plotly_chart(fig)
+
+
 # df
