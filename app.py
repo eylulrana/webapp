@@ -16,14 +16,13 @@ import numpy as np
 # Quranic Insights
 st.title('Quranic Insights')
 
-st.sidebar.title("Settings")
-st.sidebar.markdown("""
-### How to Use
-**Word Cloud**
-It visualizes the most frequently mentioned words in the Quran or the surah of your choice by sizing them according 
-to their frequency of occurrence.
+st.sidebar.markdown(""" ### How to Use
+**Word Cloud** visualizes the most frequently mentioned words in the Quran or the surah of your choice by sizing 
+them according to their frequency of occurrence.
 """)
 # Bu kısma **bold** metin, *italik* metin ve [bağlantı](https://www.streamlit.io) ekleyebilirsiniz.
+
+st.sidebar.markdown("# Settings")
 
 # Çeviri dosyalarını yükleme
 translators = {
