@@ -73,7 +73,7 @@ st.pyplot(plt)
 
 # Surah Word Cloud
 st.header('Surah Word Cloud')
-selected_surah = st.selectbox("Surah Number:", df['Surah'].unique())
+selected_surah = st.sidebar.selectbox("Surah Number:", df['Surah'].unique())
 
 surah_data = df[df['Surah'] == selected_surah]
 text_data = ' '.join(surah_data['Verse'])
