@@ -12,7 +12,8 @@ V2
 
 - [x] Seçim kısmını sidebar'a alma
 - [ ] Açıklama ekleme
-- [ ] Farklı diller seçme
+- [ ] Farklı diller ekleme
+- [ ] Çeviri sayısını arttırma
 - [ ] Ayet ve sure uzunluğu istatistiği (ortalama ve varyans)
 - [ ] Duygu analizi
 - [ ] Cümle tipleri istatistiği: soru cümlesi, ünlem, sözde soru...

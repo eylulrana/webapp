@@ -20,10 +20,10 @@ st.sidebar.title("Settings")
 
 # Çeviri dosyalarını yükleme
 translators = {
-    'Arthur J. Arberry': 'English_Arthur_J_Arberry.csv',
-    'Marmaduke Pickthall': 'English_Marmaduke_Pickthall.csv',
-    'Muhammad Tahir-ul-Qadri': 'English_Muhammad_Tahir-ul-Qadri.csv',
-    'Yusuf Ali': 'English_Yusuf_Ali.csv'
+    'Arthur J. Arberry': 'translations/English_Arthur_J_Arberry.csv',
+    'Marmaduke Pickthall': 'translations/English_Marmaduke_Pickthall.csv',
+    'Muhammad Tahir-ul-Qadri': 'translations/English_Muhammad_Tahir-ul-Qadri.csv',
+    'Yusuf Ali': 'translations/English_Yusuf_Ali.csv'
 }
 
 # TRANSLATOR SELECTION
