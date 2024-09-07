@@ -13,14 +13,14 @@ import numpy as np
 
 def app():
 
-    st.sidebar.markdown(""" ### How to Use
-    **Word Cloud** visualizes the most frequently mentioned words in the Quran and the surah of your choice by sizing 
-    them according to their frequency of occurrence.
-    #
-    # 
-    # 
-    ### Settings
-    """)
+    # st.sidebar.markdown(""" ### How to Use
+    # **Word Cloud** visualizes the most frequently mentioned words in the Quran and the surah of your choice by sizing 
+    # them according to their frequency of occurrence.
+    # #
+    # # 
+    # # 
+    # ### Settings
+    # """)
 
 
     translators = {
