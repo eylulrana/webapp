@@ -40,7 +40,7 @@ with open('stopwords.txt', 'r') as f:
     stop_words = {line.strip() for line in f}  # Set olarak oku
 
 # stop_words = set(stopwords.words('english'))
-additional_stop_words = {"lo", "ye", "hath", "unto", "therein"}
+additional_stop_words = {"lo", "ye", "hath", "unto", "therein", "upon", "ie"}
 #, "thee", "thy", "thou", "shall", "may"
 
 custom_stop_words = stop_words.union(additional_stop_words)
@@ -85,49 +85,55 @@ plt.axis('off')
 st.pyplot(plt)
 
 
+# Bubble Chart
+st.title('Quran Bubble Chart')
 most_common_25 = word_freq.most_common(25)
-
-# Word ve frekansları bir DataFrame'e dönüştürün
 df_word_freq = pd.DataFrame(most_common_25, columns=['Word', 'Frequency'])
 # df_word_freq = pd.DataFrame(word_freq.items(), columns=['Word', 'Frequency'])
 
-# Plotly ile balon grafiği oluştur
 fig = px.scatter(df_word_freq, x='Word', y='Frequency', size='Frequency', color='Word',
                  hover_name='Word', size_max=60)
 
-# Streamlit'te göster
 st.plotly_chart(fig)
-
-
-
-# Kelime frekanslarını matris formuna getirin (örnek, diagonal heatmap)
-df_heatmap = pd.DataFrame([x[1] for x in most_common_25], index=[x[0] for x in most_common_25], columns=['Frequency'])
-
-# Isı haritası oluştur
-fig, ax = plt.subplots()
-sns.heatmap(df_heatmap, annot=True, cmap='YlGnBu', ax=ax)
-
-# Streamlit'te göster
-st.pyplot(fig)
 
 
 
 import plotly.graph_objects as go
 
-# Örnek veri
+# Kelime çiftleri (source → target) oluşturun
+word_pairs = [(all_words[i], all_words[i+1]) for i in range(len(all_words)-1)]
+
+# Kelime çiftlerinin frekansını bulun
+pair_freq = Counter(word_pairs)
+
+# En sık geçen 10 kelime çiftini seçin
+most_common_pairs = pair_freq.most_common(10)
+
+# Sankey diyagramı için verileri hazırlayın
+sources = [pair[0][0] for pair in most_common_pairs]  # İlk kelime (source)
+targets = [pair[0][1] for pair in most_common_pairs]  # İkinci kelime (target)
+values = [pair[1] for pair in most_common_pairs]      # Geçiş sıklığı (value)
+
+# Kelimeleri unique hale getirin (source ve target'lar birleşik liste)
+all_nodes = list(set(sources + targets))
+
+# Kaynak ve hedeflerin indeksini alın
+source_indices = [all_nodes.index(word) for word in sources]
+target_indices = [all_nodes.index(word) for word in targets]
+
+# Sankey diyagramını oluşturun
 fig = go.Figure(go.Sankey(
     node=dict(
-        label=["Kelime 1", "Kelime 2", "Kelime 3", "Kelime 4"],
-        color=["blue", "red", "green", "yellow"]
+        label=all_nodes,
+        pad=15,
+        thickness=20,
+        line=dict(color="black", width=0.5)
     ),
     link=dict(
-        source=[0, 1, 0, 2],
-        target=[2, 3, 3, 1],
-        value=[8, 4, 2, 8]
+        source=source_indices,
+        target=target_indices,
+        value=values
     )))
 
-# Streamlit'te göster
+# Sankey grafiğini Streamlit'te göster
 st.plotly_chart(fig)
-
-
-# df
