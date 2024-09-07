@@ -100,5 +100,18 @@ fig = px.scatter(df2, x="kelimeler", y="frekans", size="etki", color="kelimeler"
 st.plotly_chart(fig)
 
 
+import seaborn as sns
+import numpy as np
+
+# Örnek veri
+data = np.random.rand(10, 10)
+
+# Isı haritası oluştur
+fig, ax = plt.subplots()
+sns.heatmap(data, ax=ax)
+
+# Streamlit'te göster
+st.pyplot(fig)
+
 
 # df
