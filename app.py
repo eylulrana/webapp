@@ -50,12 +50,13 @@ print(word_freq.most_common(10))
 
 
 
-
 # Quran Word Cloud
 st.title('Quran Word Cloud')
 
 text_data = ' '.join(all_words)
-wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text_data)
+# Temadan uygun arka plan rengini alalım
+background_color = st.get_option("theme.backgroundColor")
+wordcloud = WordCloud(width=800, height=400, background_color=background_color).generate(text_data)
 
 plt.figure(figsize=(10, 5))
 plt.imshow(wordcloud, interpolation='bilinear')
