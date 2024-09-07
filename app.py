@@ -17,7 +17,7 @@ import numpy as np
 st.markdown("# Quranic Insights")
 
 st.sidebar.markdown(""" ### How to Use
-**Word Cloud** visualizes the most frequently mentioned words in the Quran or the surah of your choice by sizing 
+**Word Cloud** visualizes the most frequently mentioned words in the Quran and the surah of your choice by sizing 
 them according to their frequency of occurrence.
 #
 # 
@@ -43,19 +43,19 @@ if 'selected_translator' not in st.session_state:
 selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()))
 df = pd.read_csv(translators[selected_translator])
 
+st.sidebar.markdown("For more information, visit [here](https://www.streamlit.io)")
+
 
 # STOPWORDS REMOVAL
 def remove_punctuation(text):
     return text.translate(str.maketrans('', '', string.punctuation))
 
-# Creating a new column by removing punctuation from the 'Verse' column
 df['NoPunc_Verse'] = df['Verse'].apply(remove_punctuation)
 
 # stopwords.txt dosyasından stopwords listesini oku
 with open('stopwords.txt', 'r') as f:
-    stop_words = {line.strip() for line in f}  # Set olarak oku
+    stop_words = {line.strip() for line in f}
 
-# stop_words = set(stopwords.words('english'))
 additional_stop_words = {"lo", "ye", "hath", "unto", "therein", "upon", "ie", "o"}
 #, "thee", "thy", "thou", "shall", "may"
 

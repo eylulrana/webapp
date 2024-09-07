@@ -5,17 +5,17 @@ V1
 - [x] Bütün Kuran'ın kelime bulutu görüntüleme
 - [x] Numara kullanılarak sure seçme
 - [x] Farklı mealler seçme
-- [ ] Sure seçildiğinde kuran tekrar çalışmasın
 - [x] Yayınlama
+- [x] Seçim kısmını sidebar'a alma
+- [x] Sure seçildiğinde kuran tekrar çalışmasın
+- [ ] Açıklama ekleme
+- [ ] Word cloud görüntü seçimi
 
 V2
 
-- [x] Seçim kısmını sidebar'a alma
-- [ ] Açıklama ekleme
 - [ ] Farklı diller ekleme
 - [ ] Çeviri sayısını arttırma
 - [ ] Ayet ve sure uzunluğu istatistiği (ortalama ve varyans)
 - [ ] Duygu analizi
 - [ ] Cümle tipleri istatistiği: soru cümlesi, ünlem, sözde soru...
-- [ ] Word cloud görüntü seçimi
 - [ ] Kelime gruplarını tespit ederek ısı haritasında art arda gelme sıklıklarını görmek
