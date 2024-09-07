@@ -42,11 +42,6 @@ if 'selected_translator' not in st.session_state:
 selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()))
 df = pd.read_csv(translators[selected_translator])
 
-# Update word cloud if translator selection has changed
-if selected_translator != st.session_state['selected_translator']:
-    st.session_state['selected_translator'] = selected_translator
-    st.session_state['wordcloud_updated'] = True
-
 
 # STOPWORDS REMOVAL
 def remove_punctuation(text):
@@ -77,16 +72,24 @@ st.header('Quran Word Cloud')
 
 text_data = ' '.join(all_words)
 
-if st.session_state['wordcloud_updated']:
+# Update word cloud if translator selection has changed
+if selected_translator != st.session_state['selected_translator']:
+    st.session_state['selected_translator'] = selected_translator
     wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text_data)
 
-    plt.figure(figsize=(10, 5))
-    plt.imshow(wordcloud, interpolation='bilinear')
-    plt.axis('off')
-    st.pyplot(plt)
-    
-    st.session_state['wordcloud_updated'] = False
+    fig, ax = plt.subplots(figsize=(10, 5))
+    ax.imshow(wordcloud, interpolation='bilinear')
+    ax.axis('off')
 
+    # plt.figure(figsize=(10, 5))
+    # plt.imshow(wordcloud, interpolation='bilinear')
+    # plt.axis('off')
+    # st.pyplot(plt)
+
+    st.session_state['wordcloud_fig'] = fig
+
+if st.session_state['wordcloud_fig'] is not None:
+    st.pyplot(st.session_state['wordcloud_fig'])
 
 
 # Surah Word Cloud
