@@ -8,6 +8,8 @@ import itertools
 import nltk
 from nltk.corpus import stopwords
 import plotly.express as px
+import seaborn as sns
+import numpy as np
 # nltk.download('stopwords')
 
 
@@ -87,21 +89,17 @@ st.pyplot(plt)
 
 
 
-# Örnek veri
-df2 = pd.DataFrame({
-    "kelimeler": ['kelime1', 'kelime2', 'kelime3', 'kelime4'],
-    "frekans": [50, 30, 20, 15],
-    "etki": [100, 200, 50, 80]
-})
-# Balon grafiği oluştur
-fig = px.scatter(df2, x="kelimeler", y="frekans", size="etki", color="kelimeler", hover_name="kelimeler")
+# Word ve frekansları bir DataFrame'e dönüştürün
+df_word_freq = pd.DataFrame(word_freq.items(), columns=['Word', 'Frequency'])
+
+# Plotly ile balon grafiği oluştur
+fig = px.scatter(df_word_freq, x='Word', y='Frequency', size='Frequency', color='Word',
+                 hover_name='Word', size_max=60)
 
 # Streamlit'te göster
 st.plotly_chart(fig)
 
 
-import seaborn as sns
-import numpy as np
 
 # Örnek veri
 data = np.random.rand(10, 10)
