@@ -17,8 +17,15 @@ import home
 # Quranic Insights
 st.markdown("# Quranic Insights")
 
-st.sidebar.title('Analyze')
-page = st.sidebar.selectbox("Sayfa Seç", ["Quran", "Surah"])
+st.sidebar.markdown(""" ### How to Use
+**Word Cloud** visualizes the most frequently mentioned words in the Quran and the surah of your choice by sizing 
+them according to their frequency of occurrence.
+#
+# 
+### Settings""")
+
+
+page = st.sidebar.selectbox("Analyze:", ["Quran", "Surah"])
 
 if page == "Quran":
     home.app()
