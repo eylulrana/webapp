@@ -75,7 +75,7 @@ selected_surah = st.selectbox("Surah Number:", df['Surah'].unique())
 surah_data = df[df['Surah'] == selected_surah]
 text_data = ' '.join(surah_data['Verse'])
 
-wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text_data)
+wordcloud = WordCloud(width=800, height=400, background_color=background_color).generate(text_data)
 
 plt.figure(figsize=(10, 5))
 plt.imshow(wordcloud, interpolation='bilinear')
