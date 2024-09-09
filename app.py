@@ -44,9 +44,9 @@ from streamlit_extras.app_logo import add_logo
 
 def example():
     if st.checkbox("Use url", value=True):
-        add_logo("http://placekitten.com/120/120")  # URL'den logo ekleme
+        add_logo("çimen 1.jpg")  # URL'den logo ekleme
     else:
-        add_logo("gallery/kitty.jpeg", height=300)  # Dosya yolundan logo ekleme
+        add_logo("modern iki taraflı manzara.jpg", height=300)  # Dosya yolundan logo ekleme
     st.write("👈 Check out the cat in the nav-bar!")
 
 # Streamlit başlığı ve fonksiyon çağrısı
