@@ -10,14 +10,16 @@ V1
 - [x] Sure seçildiğinde kuran tekrar çalışmasın
 - [ ] Açıklama ekleme
 - [ ] Word cloud görüntü seçimi
-- [ ] Çok sayfalı hale getirip sure analizini diğer sayfaya taşıma
+- [x] Çok sayfalı hale getirip sure analizini diğer sayfaya taşıma
 - [ ] Gözüken site isim ve sembolü değiştirme
 - [ ] Sure seçimine numaranın yanında isim de ekleme
 
 V2
 
 - [ ] Farklı diller ekleme
+      df'yi csv'ye kaydedince yazı bozuluyor. Csv'leri elle editlemek ya da koda dil desteği eklemek lazım.
 - [ ] Çeviri sayısını arttırma
+      Çevirirken ayetleri birleştiren ya da not ekleyenlere çözüm gerek.
 - [ ] Ayet ve sure uzunluğu istatistiği (ortalama ve varyans)
 - [ ] Duygu analizi
 - [ ] Cümle tipleri istatistiği: soru cümlesi, ünlem, sözde soru...
