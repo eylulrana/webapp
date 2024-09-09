@@ -14,6 +14,13 @@ import surah
 import home
 
 
+# Sekme başlığı ve simgesi ayarları
+st.set_page_config(
+    page_title="Quranic Insights",
+    page_icon=":rocket:"  # Favicon olarak emoji veya URL kullanabilirsiniz
+)
+
+
 # Quranic Insights
 st.sidebar.markdown("# Quranic Insights")
 
@@ -30,10 +37,3 @@ if page == "Quran":
     home.app()
 elif page == "Surah":
     surah.app()
-
-
-# Sekme başlığı ve simgesi ayarları
-st.set_page_config(
-    page_title="Quranic Insights",
-    page_icon=":rocket:"  # Favicon olarak emoji veya URL kullanabilirsiniz
-)
