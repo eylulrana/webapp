@@ -38,7 +38,3 @@ if page == "Quran":
 elif page == "Surah":
     surah.app()
 
-
-
-from streamlit_extras.app_logo import add_logo
-add_logo("çimen 1.jpg")  # URL'den logo ekleme

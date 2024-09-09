@@ -8,11 +8,12 @@ V1
 - [x] Yayınlama
 - [x] Seçim kısmını sidebar'a alma
 - [x] Sure seçildiğinde kuran tekrar çalışmasın
-- [ ] Açıklama ekleme
+- [x] Açıklama ekleme
 - [ ] Word cloud görüntü seçimi
 - [x] Çok sayfalı hale getirip sure analizini diğer sayfaya taşıma
-- [ ] Gözüken site isim ve sembolü değiştirme
+- [x] Gözüken site isim ve sembolü değiştirme
 - [ ] Sure seçimine numaranın yanında isim de ekleme
+      Farklı dillerde sure isimleri verisi yok, sadece ingilizcede olabilir.
 
 V2
 
