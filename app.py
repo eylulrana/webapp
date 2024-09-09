@@ -17,7 +17,7 @@ import home
 # Sekme başlığı ve simgesi ayarları
 st.set_page_config(
     page_title="Quranic Insights",
-    page_icon=":rocket:"  # Favicon olarak emoji veya URL kullanabilirsiniz
+    page_icon=":closed_book:"  # :open_book:
 )
 
 
@@ -37,3 +37,18 @@ if page == "Quran":
     home.app()
 elif page == "Surah":
     surah.app()
+
+
+
+from streamlit_extras.app_logo import add_logo
+
+def example():
+    if st.checkbox("Use url", value=True):
+        add_logo("http://placekitten.com/120/120")  # URL'den logo ekleme
+    else:
+        add_logo("gallery/kitty.jpeg", height=300)  # Dosya yolundan logo ekleme
+    st.write("👈 Check out the cat in the nav-bar!")
+
+# Streamlit başlığı ve fonksiyon çağrısı
+st.title("Logo Örneği")
+example()
