@@ -1,19 +1,15 @@
 import streamlit as st
-from wordcloud import WordCloud
-import matplotlib.pyplot as plt
 import pandas as pd
 import string
 from collections import Counter
 import itertools
-import nltk
-from nltk.corpus import stopwords
 import plotly.express as px
-import seaborn as sns
 import numpy as np
 import wc_quran
 import wc_surah
 import st_quran
 import st_surah
+from data_provider import *
 
 
 # Sekme başlığı ve simgesi ayarları
@@ -32,19 +28,9 @@ them according to their frequency of occurrence.
 #
 ### Settings""")
 
-translators = {
-    'Arthur J. Arberry': 'translations/English_Arthur_J_Arberry.csv',
-    'Marmaduke Pickthall': 'translations/English_Marmaduke_Pickthall.csv',
-    'Muhammad Tahir-ul-Qadri': 'translations/English_Muhammad_Tahir-ul-Qadri.csv',
-    'Yusuf Ali': 'translations/English_Yusuf_Ali.csv'
-}
 
-# TRANSLATOR SELECTION
 selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()), key="translator_select_quran")
 df = pd.read_csv(translators[selected_translator])
-
-def get_df():
-    return df
 
 
 wc_page = st.sidebar.selectbox("Analyze the Word Cloud of:", ["Quran", "Surah"], key="wc_page_select")

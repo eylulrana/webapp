@@ -1,5 +1,4 @@
 import streamlit as st
-from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 import pandas as pd
 import string
@@ -17,7 +16,7 @@ from app import all_nonstop_words
 def app():
 
     df = get_df()
-    
+
     # STOPWORDS REMOVAL
     def remove_punctuation(text):
         return text.translate(str.maketrans('', '', string.punctuation))
