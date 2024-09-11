@@ -33,7 +33,8 @@ them according to their frequency of occurrence.
 ### Settings""")
 
 
-wc_page = st.sidebar.selectbox("Analyze the Word Cloud of:", ["Quran", "Surah"])
+
+wc_page = st.sidebar.selectbox("Analyze the Word Cloud of:", ["Quran", "Surah"], key="wc_page_select")
 
 if wc_page == "Quran":
     wc_quran.app()
@@ -41,7 +42,7 @@ elif wc_page == "Surah":
     wc_surah.app()
 
 
-st_page = st.sidebar.selectbox("Statistics About:", ["Quran", "Surah"])
+st_page = st.sidebar.selectbox("Statistics About:", ["Quran", "Surah"], key="st_page_select")
 
 if st_page == "Quran":
     st_quran.app()
