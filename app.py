@@ -15,6 +15,9 @@ import wc_surah
 import st_quran
 import st_surah
 
+if 'df' in st.session_state:
+    del st.session_state['df']
+
 
 # Sekme başlığı ve simgesi ayarları
 st.set_page_config(
@@ -40,8 +43,8 @@ translators = {
 }
 
 # TRANSLATOR SELECTION
-# selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()), key="translator_select_quran")
-# df = pd.read_csv(translators[selected_translator])
+selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()), key="translator_select_quran")
+df = pd.read_csv(translators[selected_translator])
 
 
 wc_page = st.sidebar.selectbox("Analyze the Word Cloud of:", ["Quran", "Surah"], key="wc_page_select")
@@ -62,4 +65,4 @@ elif st_page == "Surah":
 
 
 
-# st.sidebar.markdown("""For more information visit [here](https://www.streamlit.io)""")
+st.sidebar.markdown("""For more information visit [here](https://www.streamlit.io)""")
