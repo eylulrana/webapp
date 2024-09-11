@@ -10,6 +10,7 @@ from nltk.corpus import stopwords
 import plotly.express as px
 import seaborn as sns
 import numpy as np
+from app import df
 
 def app():
 

@@ -33,7 +33,6 @@ them according to their frequency of occurrence.
 ### Settings""")
 
 
-
 wc_page = st.sidebar.selectbox("Analyze the Word Cloud of:", ["Quran", "Surah"], key="wc_page_select")
 
 if wc_page == "Quran":
@@ -48,6 +47,7 @@ if st_page == "Quran":
     st_quran.app()
 elif st_page == "Surah":
     st_surah.app()
+
 
 translators = {
     'Arthur J. Arberry': 'translations/English_Arthur_J_Arberry.csv',
