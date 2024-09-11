@@ -10,9 +10,10 @@ from nltk.corpus import stopwords
 import plotly.express as px
 import seaborn as sns
 import numpy as np
-import surah
-import home
-import istatistik
+import wc_quran
+import wc_surah
+import st_quran
+import st_surah
 
 
 # Sekme başlığı ve simgesi ayarları
@@ -32,10 +33,17 @@ them according to their frequency of occurrence.
 ### Settings""")
 
 
-page = st.sidebar.selectbox("Analyze:", ["Quran", "Surah"])
+wc_page = st.sidebar.selectbox("Analyze the Word Cloud of:", ["Quran", "Surah"])
 
-if page == "Quran":
-    home.app()
-elif page == "Surah":
-    surah.app()
+if wc_page == "Quran":
+    wc_quran.app()
+elif wc_page == "Surah":
+    wc_surah.app()
 
+
+st_page = st.sidebar.selectbox("Statistics About:", ["Quran", "Surah"])
+
+if st_page == "Quran":
+    st_quran.app()
+elif st_page == "Surah":
+    st_surah.app()
