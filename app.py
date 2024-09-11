@@ -42,7 +42,7 @@ elif wc_page == "Surah":
     wc_surah.app()
 
 
-st_page = st.sidebar.selectbox("Statistics About:", ["Quran", "Surah"], key="st_page_select")
+st_page = st.sidebar.selectbox("Go to Statistics About:", ["Quran", "Surah"], key="st_page_select")
 
 if st_page == "Quran":
     st_quran.app()

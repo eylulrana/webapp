@@ -52,18 +52,17 @@ def app():
     word_freq = Counter(all_nonstop_words)
 
 
-    # Quran Word Cloud
-    st.header('Quran Word Cloud')
-
     # text_data = ' '.join(all_nonstop_words)
+    word_choice = st.radio("Show:", ('All Words', 'Only Meaningful Words'))
 
-    word_choice = st.radio("Kelime Seçimi:", ('All Words', 'All Non-Stop Words'))
-
-    # Seçime göre text_data değiştiriliyor
     if word_choice == 'All Words':
         text_data = ' '.join(all_words)
     else:
         text_data = ' '.join(all_nonstop_words)    
+
+
+    # Quran Word Cloud
+    st.header('Quran Word Cloud')
 
     wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text_data)
 
