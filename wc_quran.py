@@ -10,9 +10,7 @@ from nltk.corpus import stopwords
 import plotly.express as px
 import seaborn as sns
 import numpy as np
-from app import get_df
-from app import all_words
-from app import all_nonstop_words
+from data_provider import *
 
 def app():
 
