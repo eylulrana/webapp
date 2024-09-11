@@ -21,7 +21,7 @@ def app():
     }
 
     # TRANSLATOR SELECTION
-    selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()), key="translator_select_quran")
+    selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()), key="translator_select_st_quran")
     df = pd.read_csv(translators[selected_translator])
 
     st.sidebar.markdown("""
