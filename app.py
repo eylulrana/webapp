@@ -12,6 +12,7 @@ import seaborn as sns
 import numpy as np
 import surah
 import home
+import istatistik
 
 
 # Sekme başlığı ve simgesi ayarları
