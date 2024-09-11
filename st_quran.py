@@ -13,20 +13,20 @@ import numpy as np
 
 def app():
 
-    translators = {
-        'Arthur J. Arberry': 'translations/English_Arthur_J_Arberry.csv',
-        'Marmaduke Pickthall': 'translations/English_Marmaduke_Pickthall.csv',
-        'Muhammad Tahir-ul-Qadri': 'translations/English_Muhammad_Tahir-ul-Qadri.csv',
-        'Yusuf Ali': 'translations/English_Yusuf_Ali.csv'
-    }
+    # translators = {
+    #     'Arthur J. Arberry': 'translations/English_Arthur_J_Arberry.csv',
+    #     'Marmaduke Pickthall': 'translations/English_Marmaduke_Pickthall.csv',
+    #     'Muhammad Tahir-ul-Qadri': 'translations/English_Muhammad_Tahir-ul-Qadri.csv',
+    #     'Yusuf Ali': 'translations/English_Yusuf_Ali.csv'
+    # }
 
-    # TRANSLATOR SELECTION
-    selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()), key="translator_select_st_quran")
-    df = pd.read_csv(translators[selected_translator])
+    # # TRANSLATOR SELECTION
+    # selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()), key="translator_select_st_quran")
+    # df = pd.read_csv(translators[selected_translator])
 
-    st.sidebar.markdown("""
-    #
-    For more information visit [here](https://www.streamlit.io)""")
+    # st.sidebar.markdown("""
+    # #
+    # For more information visit [here](https://www.streamlit.io)""")
 
 
     # STOPWORDS REMOVAL

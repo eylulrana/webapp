@@ -48,3 +48,16 @@ if st_page == "Quran":
     st_quran.app()
 elif st_page == "Surah":
     st_surah.app()
+
+translators = {
+    'Arthur J. Arberry': 'translations/English_Arthur_J_Arberry.csv',
+    'Marmaduke Pickthall': 'translations/English_Marmaduke_Pickthall.csv',
+    'Muhammad Tahir-ul-Qadri': 'translations/English_Muhammad_Tahir-ul-Qadri.csv',
+    'Yusuf Ali': 'translations/English_Yusuf_Ali.csv'
+}
+
+# TRANSLATOR SELECTION
+selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()), key="translator_select_quran")
+df = pd.read_csv(translators[selected_translator])
+
+st.sidebar.markdown("""For more information visit [here](https://www.streamlit.io)""")
