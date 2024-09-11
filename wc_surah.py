@@ -10,10 +10,15 @@ from nltk.corpus import stopwords
 import plotly.express as px
 import seaborn as sns
 import numpy as np
-from app import df
+from app import get_df
+from app import all_words
+from app import all_nonstop_words
 
 def app():
 
+    df = get_df()
+
+    
     # STOPWORDS REMOVAL
     def remove_punctuation(text):
         return text.translate(str.maketrans('', '', string.punctuation))

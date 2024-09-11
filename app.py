@@ -15,9 +15,6 @@ import wc_surah
 import st_quran
 import st_surah
 
-if 'df' in st.session_state:
-    del st.session_state['df']
-
 
 # Sekme başlığı ve simgesi ayarları
 st.set_page_config(
@@ -46,6 +43,9 @@ translators = {
 selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()), key="translator_select_quran")
 df = pd.read_csv(translators[selected_translator])
 
+def get_df():
+    return df
+
 
 wc_page = st.sidebar.selectbox("Analyze the Word Cloud of:", ["Quran", "Surah"], key="wc_page_select")
 
@@ -64,5 +64,25 @@ elif st_page == "Surah":
 
 
 
-
 st.sidebar.markdown("""For more information visit [here](https://www.streamlit.io)""")
+
+
+all_words = list(itertools.chain(*df['Verse'].str.split()))
+
+
+# STOPWORDS REMOVAL
+
+def remove_punctuation(text):
+    return text.translate(str.maketrans('', '', string.punctuation))
+df['NoPunc_Verse'] = df['Verse'].apply(remove_punctuation)
+
+# stopwords.txt dosyasından stopwords listesini oku
+with open('stopwords.txt', 'r') as f:
+    stop_words = {line.strip() for line in f}
+
+additional_stop_words = {"lo", "ye", "hath", "unto", "therein", "upon", "ie", "o", "thee", "thy", "thou", "shall", "may"}
+
+custom_stop_words = stop_words.union(additional_stop_words)
+df['NoSW_Verse'] = df['NoPunc_Verse'].apply(lambda x: ' '.join([word for word in x.split() if word.lower() not in custom_stop_words]))
+
+all_nonstop_words = list(itertools.chain(*df['NoSW_Verse'].str.split()))
