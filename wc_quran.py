@@ -60,7 +60,15 @@ def app():
     # Quran Word Cloud
     st.header('Quran Word Cloud')
 
-    text_data = ' '.join(all_nonstop_words)
+    # text_data = ' '.join(all_nonstop_words)
+
+    word_choice = st.radio("Kelime Seçimi:", ('All Words', 'All Non-Stop Words'))
+
+    # Seçime göre text_data değiştiriliyor
+    if word_choice == 'All Words':
+        text_data = ' '.join(all_words)
+    else:
+        text_data = ' '.join(all_nonstop_words)    
 
     wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text_data)
 
