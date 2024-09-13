@@ -31,6 +31,9 @@ def app():
     st.header('Quran Statistics')
 
 
+    total_word_count = len(all_words)
+    unique_word_count = len(set(all_words))
+    word_freq = Counter(all_words)
 
     # 3 KPI kartını yan yana göstermek için 'st.columns()' kullanıyoruz
     col1, col2, col3 = st.columns(3)
@@ -66,7 +69,3 @@ def app():
     st.plotly_chart(fig)
 
 
-
-    total_word_count = len(all_words)
-    unique_word_count = len(set(all_words))
-    word_freq = Counter(all_words)
