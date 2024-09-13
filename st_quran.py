@@ -21,7 +21,6 @@ def app():
     all_nonstop_words = list(itertools.chain(*df['NoSW_Verse'].str.split()))
 
     word_choice = st.session_state.get("word_choice", "All Words")
-    # word_choice = st.radio("Show:", ('All Words', 'Only Meaningful Words'), key="word_choice_wc_quran")
     if word_choice == 'All Words':
         text_data = ' '.join(all_words)
     else:
@@ -30,6 +29,26 @@ def app():
 
     # STATISTICS
     st.header('Quran Statistics')
+
+
+
+    # 3 KPI kartını yan yana göstermek için 'st.columns()' kullanıyoruz
+    col1, col2, col3 = st.columns(3)
+
+    # Toplam kelime sayısı
+    with col1:
+        st.metric(label="Toplam Kelime Sayısı", value=total_word_count)
+
+    # Benzersiz kelime sayısı
+    with col2:
+        st.metric(label="Benzersiz Kelime Sayısı", value=unique_word_count)
+
+    # En sık geçen kelimenin frekansı
+    most_common_word, most_common_word_count = word_freq.most_common(1)[0]
+    with col3:
+        st.metric(label=f"En Sık Geçen Kelime: {most_common_word}", value=most_common_word_count)
+
+
 
     # Bar chart
     verse_lengths = df['Verse'].str.split().apply(len)

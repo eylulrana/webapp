@@ -11,13 +11,13 @@ V1
 - [x] Açıklama ekleme
 - [x] Çok sayfalı hale getirip sure analizini diğer sayfaya taşıma
 - [x] Gözüken site isim ve sembolü değiştirme
+- [x] Stopwords dahil edip etmeme seçeneğini kullanıcıya sunma
+- [ ] Statistics sayfası: - Kuran ve sure özelinde ayet sayısı, kelime sayısı, benzersiz kelime sayısı, ortalama ayet uzunluğu ve varyansı, harf sayısı, ayet uzunluğu dağılımı görselleştirme
 - [ ] Word cloud görüntü seçimi
 - [ ] Sure seçimine numaranın yanında isim de ekleme - Farklı dillerde sure isimleri verisi yok, sadece ingilizcede olabilir.
-- [ ] Stopwords dahil edip etmeme seçeneğini kullanıcıya sunma
 
 V2
 
-- [ ] Statistics sayfası: - Kuran ve sure özelinde ayet sayısı, kelime sayısı, benzersiz kelime sayısı, ortalama ayet uzunluğu ve varyansı, harf sayısı, kelime uzunluğu dağılımı görselleştirme (?)
 - [ ] Farklı diller ekleme - df'yi csv'ye kaydedince yazı bozuluyor. Csv'leri elle editlemek ya da koda dil desteği eklemek lazım.
 - [ ] Çeviri sayısını arttırma - Çevirirken ayetleri birleştiren ya da not ekleyenlere çözüm gerek.
 - [ ] Duygu analizi

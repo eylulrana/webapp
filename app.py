@@ -26,7 +26,7 @@ selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys(
 # df = translators[selected_translator]
 st.session_state['selected_translator'] = selected_translator
 
-page = st.sidebar.selectbox("Analyze:", ["Quran Word Cloud", "Surah Word Cloud", "Quran Statistics", "Surah Statistics"], key="page_select")
+page = st.sidebar.selectbox("Go to:", ["Quran Word Cloud", "Surah Word Cloud", "Quran Statistics", "Surah Statistics"], key="page_select")
 
 if page == "Quran Word Cloud":
     wc_quran.app()
@@ -42,7 +42,7 @@ elif page == "Surah Statistics":
 if "word_choice" not in st.session_state:
     st.session_state["word_choice"] = 'All Words'
 
-word_choice = st.sidebar.radio("Show:", ('All Words', 'Only Meaningful Words'), key="word_choice")
+word_choice = st.sidebar.radio("Analyze:", ('All Words', 'Only Meaningful Words'), key="word_choice")
 
 
 st.sidebar.markdown("""For more information visit [here](https://www.streamlit.io)""")
