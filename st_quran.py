@@ -62,7 +62,8 @@ def app():
 
 
     # Quran Word Cloud
-    st.markdown('### Quran Word Cloud')
+    st.markdown("""#
+                ### Quran Word Cloud""")
 
     wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text_data)
 
@@ -89,7 +90,8 @@ def app():
 
 
     # Bubble Chart
-    st.header('Quran Bubble Chart')
+    st.markdown("""#
+                ### Quran Bubble Chart""")
 
     word_freq = Counter(all_nonstop_words)
     most_common_25 = word_freq.most_common(25)
@@ -102,7 +104,8 @@ def app():
 
 
     # Sankey Diagram
-    st.header('Quran Sankey Diagram')
+    st.markdown("""#
+                ### Quran Sankey Diagram""")
     import plotly.graph_objects as go
 
     # Kelime çiftleri (source → target) oluşturun
