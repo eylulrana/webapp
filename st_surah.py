@@ -53,7 +53,7 @@ def app():
 
 
     # Bar chart
-    verse_lengths = df['Verse'].str.split().apply(len)
+    verse_lengths = surah_data['Verse'].str.split().apply(len)
     # st.bar_chart(verse_lengths.value_counts().sort_index())
     verse_length_counts = verse_lengths.value_counts().sort_index()
 
@@ -62,7 +62,7 @@ def app():
         x=verse_length_counts.index,
         y=verse_length_counts.values,
         labels={'x': 'Word Count of Verse', 'y': 'Number of Verses'},
-        title="Distribution of Length of Quranic Verses"
+        title="Distribution of Length Verses of the Surah"
     )
 
     st.plotly_chart(fig)
