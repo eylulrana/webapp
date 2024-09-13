@@ -40,8 +40,27 @@ def app():
     ax.set_xlabel('Kelime Sayısı')
     ax.set_ylabel('Ayet Sayısı')
 
-    # Streamlit'te grafiği göster
-    st.pyplot(fig)
+
+
+    # # Streamlit'te grafiği göster
+    # st.pyplot(fig)
 
     # Alternatif olarak bir çubuk grafik
     st.bar_chart(verse_lengths.value_counts().sort_index())
+
+    # Ayet uzunluğu dağılımını hesapla
+    verse_length_counts = verse_lengths.value_counts().sort_index()
+
+    # Bar genişliğini küçülterek daha fazla bar göstermek için 'width' parametresini kullanıyoruz
+    fig, ax = plt.subplots()
+    ax.bar(verse_length_counts.index, verse_length_counts.values, width=0.5, edgecolor='black')
+
+    # Eksen isimleri ekleme
+    ax.set_xlabel('Kelime Sayısı (Ayet Uzunluğu)', fontsize=12)
+    ax.set_ylabel('Ayet Sayısı', fontsize=12)
+
+    # Grafik başlığı
+    ax.set_title('Ayet Uzunluğu Dağılımı', fontsize=14)
+
+    # Streamlit'te grafiği göster
+    st.pyplot(fig)
