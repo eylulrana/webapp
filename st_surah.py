@@ -39,7 +39,7 @@ def app():
     formatted_total_word_count = f"{total_word_count:,}"
     formatted_unique_word_count = f"{unique_word_count:,}"
     verse_count = len(surah_data)
-    average_verse_length = total_word_count / verse_count
+    average_verse_length = round(total_word_count / verse_count)
 
     col1, col2, col3, col4 = st.columns(4)
 
