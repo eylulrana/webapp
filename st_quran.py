@@ -61,6 +61,17 @@ def app():
         st.metric(label="Unique Word Count", value=formatted_unique_word_count)
 
 
+    # Quran Word Cloud
+    st.header('Quran Word Cloud')
+
+    wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text_data)
+
+    plt.figure(figsize=(10, 5))
+    plt.imshow(wordcloud, interpolation='bilinear')
+    plt.axis('off')
+    st.pyplot(plt)
+
+
     # Bar chart
     verse_lengths = df['Verse'].str.split().apply(len)
     # st.bar_chart(verse_lengths.value_counts().sort_index())
@@ -75,19 +86,6 @@ def app():
     )
 
     st.plotly_chart(fig)
-
-
-
-
-    # Quran Word Cloud
-    st.header('Quran Word Cloud')
-
-    wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text_data)
-
-    plt.figure(figsize=(10, 5))
-    plt.imshow(wordcloud, interpolation='bilinear')
-    plt.axis('off')
-    st.pyplot(plt)
 
 
     # Bubble Chart

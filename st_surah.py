@@ -31,7 +31,6 @@ def app():
         text_data = ' '.join(all_nonstop_words)
 
 
-
     # STATISTICS
     st.header('Surah Statistics')
 
@@ -58,34 +57,26 @@ def app():
         st.metric(label="Average Word Count of Verses", value=average_verse_length)
 
 
-    # Bar chart
-    verse_lengths = surah_data['Verse'].str.split().apply(len)
-    # st.bar_chart(verse_lengths.value_counts().sort_index())
-    verse_length_counts = verse_lengths.value_counts().sort_index()
-
-    # Plotly ile çizim
-    fig = px.bar(
-        x=verse_length_counts.index,
-        y=verse_length_counts.values,
-        labels={'x': 'Word Count of Verse', 'y': 'Number of Verses'},
-        title="Distribution of Verse Lengths of the Surah"
-    )
-
-    st.plotly_chart(fig)
-
-
-
-        # Surah Word Cloud
+    # Surah Word Cloud
     st.header('Surah Word Cloud')
-    selected_surah = st.selectbox("Surah Number:", df['Surah'].unique())
 
-    surah_data = df[df['Surah'] == selected_surah]
-
-
-    # text_data = ' '.join(surah_data['Verse'])
     wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text_data)
 
     plt.figure(figsize=(10, 5))
     plt.imshow(wordcloud, interpolation='bilinear')
     plt.axis('off')
     st.pyplot(plt)
+
+
+    # Bar chart
+    verse_lengths = surah_data['Verse'].str.split().apply(len)
+    # st.bar_chart(verse_lengths.value_counts().sort_index())
+    verse_length_counts = verse_lengths.value_counts().sort_index()
+
+    fig = px.bar(
+        x=verse_length_counts.index,
+        y=verse_length_counts.values,
+        labels={'x': 'Word Count of Verse', 'y': 'Number of Verses'},
+        title="Distribution of Verse Lengths of the Surah"
+    )
+    st.plotly_chart(fig)
