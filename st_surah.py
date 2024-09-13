@@ -7,7 +7,7 @@ from data_provider import *
 
 def app():
 
-    selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()), key="translator_select_quran")
+    selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()), key="translator_select_st_surah")
     df = translators[selected_translator]
 
     # STOPWORDS REMOVAL

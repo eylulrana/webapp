@@ -18,7 +18,6 @@ st.set_page_config(
     page_icon=":closed_book:"  # :open_book:
 )
 
-
 # Quranic Insights
 st.sidebar.markdown("# Quranic Insights")
 
@@ -28,7 +27,7 @@ them according to their frequency of occurrence.
 #
 ### Settings""")
 
-selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()), key="translator_select_quran")
+selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()), key="translator_select_app")
 df = translators[selected_translator]
 
 wc_page = st.sidebar.selectbox("Analyze the Word Cloud of:", ["Quran", "Surah"], key="wc_page_select")
