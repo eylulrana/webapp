@@ -1,10 +1,5 @@
 import streamlit as st
 import pandas as pd
-import string
-from collections import Counter
-import itertools
-import plotly.express as px
-import numpy as np
 import wc_quran
 import wc_surah
 import st_quran
@@ -46,16 +41,4 @@ elif st_page == "Surah":
     st_surah.app()
 
 
-
 st.sidebar.markdown("""For more information visit [here](https://www.streamlit.io)""")
-
-
-# STOPWORDS REMOVAL
-
-all_words = list(itertools.chain(*df['Verse'].str.split()))
-
-df['NoPunc_Verse'] = df['Verse'].apply(remove_punctuation)
-df['NoSW_Verse'] = df['NoPunc_Verse'].apply(lambda x: ' '.join([word for word in x.split() if word.lower() not in custom_stop_words]))
-
-all_nonstop_words = list(itertools.chain(*df['NoSW_Verse'].str.split()))
-

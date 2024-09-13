@@ -18,7 +18,7 @@ def app():
 
     all_nonstop_words = list(itertools.chain(*df['NoSW_Verse'].str.split()))
 
-    word_choice = st.radio("Show:", ('All Words', 'Only Meaningful Words'))
+    word_choice = st.radio("Show:", ('All Words', 'Only Meaningful Words'), key="word_choice_wc_surah")
     if word_choice == 'All Words':
         text_data = ' '.join(all_words)
     else:
