@@ -14,9 +14,10 @@ from data_provider import *
 
 def app():
 
-    df = get_df()
+    selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()), key="translator_select_quran")
+    df = translators[selected_translator]
 
-
+    
     # STOPWORDS REMOVAL
     def remove_punctuation(text):
         return text.translate(str.maketrans('', '', string.punctuation))

@@ -14,8 +14,10 @@ from data_provider import *
 
 def app():
 
-    df = get_df()
+    selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()), key="translator_select_quran")
+    df = translators[selected_translator]
 
+    
     word_choice = st.radio("Show:", ('All Words', 'Only Meaningful Words'))
 
     if word_choice == 'All Words':
