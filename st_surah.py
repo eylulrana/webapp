@@ -45,15 +45,17 @@ def app():
     # # Streamlit'te grafiği göster
     # st.pyplot(fig)
 
-    # Alternatif olarak bir çubuk grafik
-    st.bar_chart(verse_lengths.value_counts().sort_index())
+    # # Alternatif olarak bir çubuk grafik
+    # st.bar_chart(verse_lengths.value_counts().sort_index())
 
     # Ayet uzunluğu dağılımını hesapla
     verse_length_counts = verse_lengths.value_counts().sort_index()
 
-    # Bar genişliğini küçülterek daha fazla bar göstermek için 'width' parametresini kullanıyoruz
-    fig, ax = plt.subplots()
-    ax.bar(verse_length_counts.index, verse_length_counts.values, width=0.5, edgecolor='black')
+    # Daha geniş bir grafik oluşturma ve bar genişliğini küçültme
+    fig, ax = plt.subplots(figsize=(10, 6))  # Genişliği artırıyoruz
+
+    # Bar genişliği 0.3 olarak ayarlandı
+    ax.bar(verse_length_counts.index, verse_length_counts.values, width=0.3, edgecolor='black')
 
     # Eksen isimleri ekleme
     ax.set_xlabel('Kelime Sayısı (Ayet Uzunluğu)', fontsize=12)
