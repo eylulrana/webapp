@@ -27,5 +27,21 @@ def app():
         text_data = ' '.join(all_nonstop_words)
 
 
+    total_word_count = len(all_words)
+    unique_word_count = len(set(all_words))
     word_freq = Counter(all_words)
-    word_number = len(book_text.split())
+
+    verse_lengths = df['Verse'].str.split().apply(len)
+
+    # Ayet uzunluğu dağılımını bir histogram ile göster
+    fig, ax = plt.subplots()
+    ax.hist(verse_lengths, bins=range(1, verse_lengths.max() + 2), edgecolor='black')
+    ax.set_title('Ayet Uzunluğu Dağılımı')
+    ax.set_xlabel('Kelime Sayısı')
+    ax.set_ylabel('Ayet Sayısı')
+
+    # Streamlit'te grafiği göster
+    st.pyplot(fig)
+
+    # Alternatif olarak bir çubuk grafik
+    st.bar_chart(verse_lengths.value_counts().sort_index())
