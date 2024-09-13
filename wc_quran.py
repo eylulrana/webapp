@@ -9,7 +9,7 @@ from data_provider import *
 
 def app():
 
-    selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()), key="translator_select_wc_quran")
+    selected_translator = st.sidebar.selectbox("Translator: wc_quran", list(translators.keys()), key="translator_select_wc_quran")
     df = translators[selected_translator]
 
 

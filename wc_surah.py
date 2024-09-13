@@ -6,7 +6,7 @@ from data_provider import *
 
 def app():
 
-    selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys()), key="translator_select_wc_surah")
+    selected_translator = st.sidebar.selectbox("Translator wc_surah:", list(translators.keys()), key="translator_select_wc_surah")
     df = translators[selected_translator]
 
 
@@ -18,11 +18,11 @@ def app():
 
     all_nonstop_words = list(itertools.chain(*df['NoSW_Verse'].str.split()))
 
-    word_choice = st.radio("Show:", ('All Words', 'Only Meaningful Words'), key="word_choice_wc_surah")
-    if word_choice == 'All Words':
-        text_data = ' '.join(all_words)
-    else:
-        text_data = ' '.join(all_nonstop_words)
+    # word_choice = st.radio("Show:", ('All Words', 'Only Meaningful Words'), key="word_choice_wc_surah")
+    # if word_choice == 'All Words':
+    #     text_data = ' '.join(all_words)
+    # else:
+    #     text_data = ' '.join(all_nonstop_words)
 
 
     # Surah Word Cloud
