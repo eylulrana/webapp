@@ -9,7 +9,9 @@ from data_provider import *
 
 def app():
 
-    selected_translator = st.sidebar.selectbox("Translator: wc_quran", list(translators.keys()), key="translator_select_wc_quran")
+    if 'selected_translator' in st.session_state:
+        selected_translator = st.session_state['selected_translator']
+    # selected_translator = st.sidebar.selectbox("Translator: wc_quran", list(translators.keys()), key="translator_select_wc_quran")
     df = translators[selected_translator]
 
 
