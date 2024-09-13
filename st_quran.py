@@ -30,11 +30,12 @@ def app():
     # STATISTICS
     st.header('Quran Statistics')
 
+    word_freq = Counter(all_words)
     total_word_count = len(all_words)
     unique_word_count = len(set(all_words))
-    word_freq = Counter(all_words)
     formatted_total_word_count = f"{total_word_count:,}"
     formatted_unique_word_count = f"{unique_word_count:,}"
+    verse_count = len(df)
 
     col1, col2, col3, col4 = st.columns(4)
 
@@ -42,7 +43,7 @@ def app():
         st.metric(label="Total Surah Count", value=114)
 
     with col2:
-        st.metric(label="Total Verse Count", value="6,236")
+        st.metric(label="Total Verse Count", value=verse_count)
 
     with col3:
         st.metric(label="Total Word Count", value=formatted_total_word_count)

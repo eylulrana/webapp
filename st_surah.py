@@ -11,13 +11,17 @@ def app():
         selected_translator = st.session_state['selected_translator']
     df = translators[selected_translator]
 
+    selected_surah = st.selectbox("Surah Number:", df['Surah'].unique())
+    surah_data = df[df['Surah'] == selected_surah]
+
+
     # STOPWORDS REMOVAL
-    all_words = list(itertools.chain(*df['Verse'].str.split()))
+    all_words = list(itertools.chain(*surah_data['Verse'].str.split()))
 
-    df['NoPunc_Verse'] = df['Verse'].apply(remove_punctuation)
-    df['NoSW_Verse'] = df['NoPunc_Verse'].apply(lambda x: ' '.join([word for word in x.split() if word.lower() not in custom_stop_words]))
+    surah_data['NoPunc_Verse'] = surah_data['Verse'].apply(remove_punctuation)
+    surah_data['NoSW_Verse'] = surah_data['NoPunc_Verse'].apply(lambda x: ' '.join([word for word in x.split() if word.lower() not in custom_stop_words]))
 
-    all_nonstop_words = list(itertools.chain(*df['NoSW_Verse'].str.split()))
+    all_nonstop_words = list(itertools.chain(*surah_data['NoSW_Verse'].str.split()))
 
     word_choice = st.session_state.get("word_choice", "All Words")
     if word_choice == 'All Words':
@@ -25,45 +29,41 @@ def app():
     else:
         text_data = ' '.join(all_nonstop_words)
 
+
+
     # STATISTICS
     st.header('Surah Statistics')
 
+    word_freq = Counter(all_words)
     total_word_count = len(all_words)
     unique_word_count = len(set(all_words))
-    word_freq = Counter(all_words)
+    formatted_total_word_count = f"{total_word_count:,}"
+    formatted_unique_word_count = f"{unique_word_count:,}"
+    verse_count = len(surah_data)
 
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.metric(label="Total Verse Count", value=verse_count)
+
+    with col2:
+        st.metric(label="Total Word Count", value=formatted_total_word_count)
+
+    with col3:
+        st.metric(label="Unique Word Count", value=formatted_unique_word_count)
+
+
+    # Bar chart
     verse_lengths = df['Verse'].str.split().apply(len)
-
-    # Ayet uzunluğu dağılımını bir histogram ile göster
-    fig, ax = plt.subplots()
-    ax.hist(verse_lengths, bins=range(1, verse_lengths.max() + 2), edgecolor='black')
-    ax.set_title('Ayet Uzunluğu Dağılımı')
-    ax.set_xlabel('Kelime Sayısı')
-    ax.set_ylabel('Ayet Sayısı')
-
-
-
-    # # Streamlit'te grafiği göster
-    # st.pyplot(fig)
-
-    # # Alternatif olarak bir çubuk grafik
     # st.bar_chart(verse_lengths.value_counts().sort_index())
-
-    # Ayet uzunluğu dağılımını hesapla
     verse_length_counts = verse_lengths.value_counts().sort_index()
 
-    # Daha geniş bir grafik oluşturma ve bar genişliğini küçültme
-    fig, ax = plt.subplots(figsize=(10, 6))  # Genişliği artırıyoruz
+    # Plotly ile çizim
+    fig = px.bar(
+        x=verse_length_counts.index,
+        y=verse_length_counts.values,
+        labels={'x': 'Word Count of Verse', 'y': 'Number of Verses'},
+        title="Distribution of Length of Quranic Verses"
+    )
 
-    # Bar genişliği 0.3 olarak ayarlandı
-    ax.bar(verse_length_counts.index, verse_length_counts.values, width=0.3, edgecolor='black')
-
-    # Eksen isimleri ekleme
-    ax.set_xlabel('Kelime Sayısı (Ayet Uzunluğu)', fontsize=12)
-    ax.set_ylabel('Ayet Sayısı', fontsize=12)
-
-    # Grafik başlığı
-    ax.set_title('Ayet Uzunluğu Dağılımı', fontsize=14)
-
-    # Streamlit'te grafiği göster
-    st.pyplot(fig)
+    st.plotly_chart(fig)
