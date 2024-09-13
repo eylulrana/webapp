@@ -36,21 +36,19 @@ def app():
     word_freq = Counter(all_words)
 
     # 3 KPI kartını yan yana göstermek için 'st.columns()' kullanıyoruz
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
 
-    # Toplam kelime sayısı
     with col1:
-        st.metric(label="Toplam Kelime Sayısı", value=total_word_count)
+        st.metric(label="Total Surah Count", value=114)
 
-    # Benzersiz kelime sayısı
     with col2:
-        st.metric(label="Benzersiz Kelime Sayısı", value=unique_word_count)
+        st.metric(label="Total Verse Count", value=6236)
 
-    # En sık geçen kelimenin frekansı
-    most_common_word, most_common_word_count = word_freq.most_common(1)[0]
     with col3:
-        st.metric(label=f"En Sık Geçen Kelime: {most_common_word}", value=most_common_word_count)
+        st.metric(label="Total Word Count", value=total_word_count)
 
+    with col4:
+        st.metric(label="Unique Word Count", value=unique_word_count)
 
 
     # Bar chart
@@ -67,5 +65,3 @@ def app():
     )
 
     st.plotly_chart(fig)
-
-
