@@ -1,7 +1,5 @@
 import streamlit as st
-import matplotlib.pyplot as plt
 import plotly.express as px
-import pandas as pd
 from collections import Counter
 import itertools
 from data_provider import *
@@ -36,6 +34,7 @@ def app():
     formatted_total_word_count = f"{total_word_count:,}"
     formatted_unique_word_count = f"{unique_word_count:,}"
     verse_count = len(df)
+    formatted_verse_count = f"{verse_count:,}"
 
     col1, col2, col3, col4 = st.columns(4)
 
@@ -43,7 +42,7 @@ def app():
         st.metric(label="Total Surah Count", value=114)
 
     with col2:
-        st.metric(label="Total Verse Count", value=verse_count)
+        st.metric(label="Total Verse Count", value=formatted_verse_count)
 
     with col3:
         st.metric(label="Total Word Count", value=formatted_total_word_count)

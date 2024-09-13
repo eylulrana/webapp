@@ -1,6 +1,5 @@
 import streamlit as st
-import matplotlib.pyplot as plt
-import pandas as pd
+import plotly.express as px
 from collections import Counter
 import itertools
 from data_provider import *
