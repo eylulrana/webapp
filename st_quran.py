@@ -28,6 +28,7 @@ def app():
 
 
     # STATISTICS
+    st.header('Quran Statistics')
 
     total_word_count = len(all_words)
     unique_word_count = len(set(all_words))
@@ -35,15 +36,15 @@ def app():
 
     verse_lengths = df['Verse'].str.split().apply(len)
 
-    # Ayet uzunluğu dağılımını bir histogram ile göster
-    fig, ax = plt.subplots()
-    ax.hist(verse_lengths, bins=range(1, verse_lengths.max() + 2), edgecolor='black')
-    ax.set_title('Ayet Uzunluğu Dağılımı')
-    ax.set_xlabel('Kelime Sayısı')
-    ax.set_ylabel('Ayet Sayısı')
+    # # Ayet uzunluğu dağılımını bir histogram ile göster
+    # fig, ax = plt.subplots()
+    # ax.hist(verse_lengths, bins=range(1, verse_lengths.max() + 2), edgecolor='black')
+    # ax.set_title('Ayet Uzunluğu Dağılımı')
+    # ax.set_xlabel('Kelime Sayısı')
+    # ax.set_ylabel('Ayet Sayısı')
 
-    # Streamlit'te grafiği göster
-    st.pyplot(fig)
+    # # Streamlit'te grafiği göster
+    # st.pyplot(fig)
 
     # Alternatif olarak bir çubuk grafik
     st.bar_chart(verse_lengths.value_counts().sort_index())

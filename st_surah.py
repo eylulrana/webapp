@@ -26,6 +26,8 @@ def app():
     else:
         text_data = ' '.join(all_nonstop_words)
 
+    # STATISTICS
+    st.header('Surah Statistics')
 
     total_word_count = len(all_words)
     unique_word_count = len(set(all_words))
