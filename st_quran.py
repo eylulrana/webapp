@@ -36,7 +36,7 @@ def app():
     formatted_unique_word_count = f"{unique_word_count:,}"
     verse_count = len(df)
     formatted_verse_count = f"{verse_count:,}"
-    average_surah_length = math.ceil(6236/114)
+    average_surah_length = (6236/114)
     average_verse_length = (total_word_count / verse_count)
 
     col1, col2, col3 = st.columns(3)
