@@ -35,8 +35,10 @@ def app():
     formatted_unique_word_count = f"{unique_word_count:,}"
     verse_count = len(df)
     formatted_verse_count = f"{verse_count:,}"
+    average_verse_length = total_word_count / verse_count
+    average_surah_length = 6236/114
 
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3 = st.columns(3)
 
     with col1:
         st.metric(label="Total Surah Count", value=114)
@@ -47,7 +49,13 @@ def app():
     with col3:
         st.metric(label="Total Word Count", value=formatted_total_word_count)
 
-    with col4:
+    with col1:
+        st.metric(label="Average Verse Count of Surahs", value=average_surah_length)
+
+    with col2:
+        st.metric(label="Average Word Count of Verses", value=average_verse_length)
+
+    with col3:
         st.metric(label="Unique Word Count", value=formatted_unique_word_count)
 
 

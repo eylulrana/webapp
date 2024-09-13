@@ -12,7 +12,8 @@ V1
 - [x] Çok sayfalı hale getirip sure analizini diğer sayfaya taşıma
 - [x] Gözüken site isim ve sembolü değiştirme
 - [x] Stopwords dahil edip etmeme seçeneğini kullanıcıya sunma
-- [ ] Statistics sayfası: - Kuran ve sure özelinde ayet sayısı, kelime sayısı, benzersiz kelime sayısı, ortalama ayet uzunluğu ve varyansı, harf sayısı, ayet uzunluğu dağılımı görselleştirme
+- [x] Statistics sayfası: - Kuran ve sure özelinde ayet sayısı, kelime sayısı, benzersiz kelime sayısı, ayet uzunluğu dağılımı görselleştirme
+- [ ] ortalama ayet uzunluğu ve varyansı, harf sayısı,
 - [ ] Word cloud görüntü seçimi
 - [ ] Sure seçimine numaranın yanında isim de ekleme - Farklı dillerde sure isimleri verisi yok, sadece ingilizcede olabilir.
 

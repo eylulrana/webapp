@@ -39,8 +39,9 @@ def app():
     formatted_total_word_count = f"{total_word_count:,}"
     formatted_unique_word_count = f"{unique_word_count:,}"
     verse_count = len(surah_data)
+    average_verse_length = total_word_count / verse_count
 
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
 
     with col1:
         st.metric(label="Total Verse Count", value=verse_count)
@@ -50,6 +51,9 @@ def app():
 
     with col3:
         st.metric(label="Unique Word Count", value=formatted_unique_word_count)
+
+    with col4:
+        st.metric(label="Average Word Count of Verses", value=average_verse_length)
 
 
     # Bar chart
@@ -62,7 +66,7 @@ def app():
         x=verse_length_counts.index,
         y=verse_length_counts.values,
         labels={'x': 'Word Count of Verse', 'y': 'Number of Verses'},
-        title="Distribution of Length Verses of the Surah"
+        title="Distribution of Verse Lengths of the Surah"
     )
 
     st.plotly_chart(fig)
