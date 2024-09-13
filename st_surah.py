@@ -58,7 +58,8 @@ def app():
 
 
     # Surah Word Cloud
-    st.markdown('### Surah Word Cloud')
+    st.markdown("#")
+    st.markdown("""### Surah Word Cloud""")
 
     wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text_data)
 
