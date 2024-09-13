@@ -30,25 +30,25 @@ def app():
     # STATISTICS
     st.header('Quran Statistics')
 
-
     total_word_count = len(all_words)
     unique_word_count = len(set(all_words))
     word_freq = Counter(all_words)
+    formatted_total_word_count = f"{total_word_count:,}"
+    formatted_unique_word_count = f"{unique_word_count:,}"
 
-    # 3 KPI kartını yan yana göstermek için 'st.columns()' kullanıyoruz
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
         st.metric(label="Total Surah Count", value=114)
 
     with col2:
-        st.metric(label="Total Verse Count", value=6236)
+        st.metric(label="Total Verse Count", value="6,236")
 
     with col3:
-        st.metric(label="Total Word Count", value=total_word_count)
+        st.metric(label="Total Word Count", value=formatted_total_word_count)
 
     with col4:
-        st.metric(label="Unique Word Count", value=unique_word_count)
+        st.metric(label="Unique Word Count", value=formatted_unique_word_count)
 
 
     # Bar chart
