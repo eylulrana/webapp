@@ -30,24 +30,20 @@ def app():
 
     # STATISTICS
     st.header('Quran Statistics')
-    st.markdown("## Distribution of Word Count of Quranic Verses")
 
     # Bar chart
     verse_lengths = df['Verse'].str.split().apply(len)
-    st.bar_chart(verse_lengths.value_counts().sort_index())
-
-
+    # st.bar_chart(verse_lengths.value_counts().sort_index())
     verse_length_counts = verse_lengths.value_counts().sort_index()
 
-    # Plotly ile bar chart ve eksen isimleri ekleyelim
+    # Plotly ile çizim
     fig = px.bar(
         x=verse_length_counts.index,
         y=verse_length_counts.values,
-        labels={'x': 'Kelime Sayısı (Ayet Uzunluğu)', 'y': 'Ayet Sayısı'},
-        title="Ayet Uzunluğu Dağılımı"
+        labels={'x': 'Word Count of Verse', 'y': 'Number of Verses'},
+        title="Distribution of Length of Quranic Verses"
     )
 
-    # Streamlit'te grafiği göster
     st.plotly_chart(fig)
 
 
