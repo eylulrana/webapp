@@ -29,22 +29,31 @@ def app():
 
     # STATISTICS
     st.header('Quran Statistics')
+    st.markdown("## Distribution of Word Count of Quranic Verses")
+
+    # Bar chart
+    verse_lengths = df['Verse'].str.split().apply(len)
+    st.bar_chart(verse_lengths.value_counts().sort_index())
+
+
+    verse_length_counts = verse_lengths.value_counts().sort_index()
+
+    # Bar chart'ı matplotlib ile oluştur ve eksen isimleri ekle
+    fig, ax = plt.subplots()
+    ax.bar(verse_length_counts.index, verse_length_counts.values, width=0.5, edgecolor='black')
+
+    # Eksen isimleri ekleme
+    ax.set_xlabel('Kelime Sayısı (Ayet Uzunluğu)', fontsize=12)
+    ax.set_ylabel('Ayet Sayısı', fontsize=12)
+
+    # Grafik başlığı
+    ax.set_title('Ayet Uzunluğu Dağılımı', fontsize=14)
+
+    # Grafiği Streamlit'te göster
+    st.pyplot(fig)
+
+
 
     total_word_count = len(all_words)
     unique_word_count = len(set(all_words))
     word_freq = Counter(all_words)
-
-    verse_lengths = df['Verse'].str.split().apply(len)
-
-    # # Ayet uzunluğu dağılımını bir histogram ile göster
-    # fig, ax = plt.subplots()
-    # ax.hist(verse_lengths, bins=range(1, verse_lengths.max() + 2), edgecolor='black')
-    # ax.set_title('Ayet Uzunluğu Dağılımı')
-    # ax.set_xlabel('Kelime Sayısı')
-    # ax.set_ylabel('Ayet Sayısı')
-
-    # # Streamlit'te grafiği göster
-    # st.pyplot(fig)
-
-    # Alternatif olarak bir çubuk grafik
-    st.bar_chart(verse_lengths.value_counts().sort_index())
