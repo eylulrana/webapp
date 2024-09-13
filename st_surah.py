@@ -1,4 +1,6 @@
 import streamlit as st
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
 import plotly.express as px
 from collections import Counter
 import itertools
@@ -70,3 +72,20 @@ def app():
     )
 
     st.plotly_chart(fig)
+
+
+
+        # Surah Word Cloud
+    st.header('Surah Word Cloud')
+    selected_surah = st.selectbox("Surah Number:", df['Surah'].unique())
+
+    surah_data = df[df['Surah'] == selected_surah]
+
+
+    # text_data = ' '.join(surah_data['Verse'])
+    wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text_data)
+
+    plt.figure(figsize=(10, 5))
+    plt.imshow(wordcloud, interpolation='bilinear')
+    plt.axis('off')
+    st.pyplot(plt)
