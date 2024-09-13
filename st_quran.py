@@ -62,7 +62,7 @@ def app():
 
 
     # Quran Word Cloud
-    st.header('Quran Word Cloud')
+    st.markdown('### Quran Word Cloud')
 
     wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text_data)
 
