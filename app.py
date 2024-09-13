@@ -26,19 +26,15 @@ selected_translator = st.sidebar.selectbox("Translator:", list(translators.keys(
 # df = translators[selected_translator]
 st.session_state['selected_translator'] = selected_translator
 
-wc_page = st.sidebar.selectbox("Analyze the Word Cloud of:", ["Quran", "Surah"], key="wc_page_select")
+page = st.sidebar.selectbox("Analyze:", ["Quran Word Cloud", "Surah Word Cloud"], key="page_select")
 
-if wc_page == "Quran":
+if page == "Quran Word Cloud":
     wc_quran.app()
-elif wc_page == "Surah":
+elif page == "Surah Word Cloud":
     wc_surah.app()
-
-
-st_page = st.sidebar.selectbox("Go to Statistics About:", ["Quran", "Surah"], key="st_page_select")
-
-if st_page == "Quran":
+elif page == "Quran Statistics":
     st_quran.app()
-elif st_page == "Surah":
+elif page == "Surah Statistics":
     st_surah.app()
 
 
