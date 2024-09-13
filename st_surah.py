@@ -58,7 +58,7 @@ def app():
 
 
     # Surah Word Cloud
-    st.markdown("#")
+    st.markdown("##")
     st.markdown("""### Surah Word Cloud""")
 
     wordcloud = WordCloud(width=800, height=400, background_color='white').generate(text_data)
@@ -68,7 +68,7 @@ def app():
     plt.axis('off')
     st.pyplot(plt)
 
-
+    st.markdown("##")
     # Bar chart
     verse_lengths = surah_data['Verse'].str.split().apply(len)
     # st.bar_chart(verse_lengths.value_counts().sort_index())

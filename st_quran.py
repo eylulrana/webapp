@@ -72,7 +72,7 @@ def app():
     plt.axis('off')
     st.pyplot(plt)
 
-
+    st.markdown("##")
     # Bar chart
     verse_lengths = df['Verse'].str.split().apply(len)
     # st.bar_chart(verse_lengths.value_counts().sort_index())
@@ -90,7 +90,7 @@ def app():
 
 
     # Bubble Chart
-    st.markdown("#")
+    st.markdown("##")
     st.markdown("""### Quran Bubble Chart""")
 
     word_freq = Counter(all_nonstop_words)
@@ -104,7 +104,7 @@ def app():
 
 
     # Sankey Diagram
-    st.markdown("#")
+    st.markdown("##")
     st.markdown("""### Quran Sankey Diagram""")
 
     import plotly.graph_objects as go
