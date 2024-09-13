@@ -1,5 +1,6 @@
 import streamlit as st
 import matplotlib.pyplot as plt
+import plotly.express as px
 import pandas as pd
 from collections import Counter
 import itertools
@@ -38,19 +39,16 @@ def app():
 
     verse_length_counts = verse_lengths.value_counts().sort_index()
 
-    # Bar chart'ı matplotlib ile oluştur ve eksen isimleri ekle
-    fig, ax = plt.subplots()
-    ax.bar(verse_length_counts.index, verse_length_counts.values, width=0.5, edgecolor='black')
+    # Plotly ile bar chart ve eksen isimleri ekleyelim
+    fig = px.bar(
+        x=verse_length_counts.index,
+        y=verse_length_counts.values,
+        labels={'x': 'Kelime Sayısı (Ayet Uzunluğu)', 'y': 'Ayet Sayısı'},
+        title="Ayet Uzunluğu Dağılımı"
+    )
 
-    # Eksen isimleri ekleme
-    ax.set_xlabel('Kelime Sayısı (Ayet Uzunluğu)', fontsize=12)
-    ax.set_ylabel('Ayet Sayısı', fontsize=12)
-
-    # Grafik başlığı
-    ax.set_title('Ayet Uzunluğu Dağılımı', fontsize=14)
-
-    # Grafiği Streamlit'te göster
-    st.pyplot(fig)
+    # Streamlit'te grafiği göster
+    st.plotly_chart(fig)
 
 
 
