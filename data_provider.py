@@ -13,7 +13,6 @@ translators = {
     'Yusuf Ali': df_yusufali
 }
 
-
 # STOPWORDS REMOVAL
 def remove_punctuation(text):
     return text.translate(str.maketrans('', '', string.punctuation))
@@ -22,7 +21,6 @@ def remove_punctuation(text):
 with open('stopwords.txt', 'r') as f:
     stop_words = {line.strip() for line in f}
 
-additional_stop_words = {"lo", "ye", "hath", "unto", "therein", "upon", "ie", "o"}
-#, "thee", "thy", "thou", "shall", "may"
+additional_stop_words = {"lo", "ye", "hath", "unto", "therein", "upon", "ie", "o", "thee", "thy", "thou", "shall", "may"}
 
 custom_stop_words = stop_words.union(additional_stop_words)

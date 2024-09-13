@@ -9,7 +9,6 @@ def app():
 
     if 'selected_translator' in st.session_state:
         selected_translator = st.session_state['selected_translator']
-    # selected_translator = st.sidebar.selectbox("Translator: st_surah", list(translators.keys()), key="translator_select_st_surah")
     df = translators[selected_translator]
 
     # STOPWORDS REMOVAL
@@ -20,7 +19,8 @@ def app():
 
     all_nonstop_words = list(itertools.chain(*df['NoSW_Verse'].str.split()))
 
-    word_choice = st.radio("Show:", ('All Words', 'Only Meaningful Words'), key="word_choice_st_surah")
+    word_choice = st.session_state.get("word_choice", "All Words")
+    # word_choice = st.radio("Show:", ('All Words', 'Only Meaningful Words'), key="word_choice_wc_quran")
     if word_choice == 'All Words':
         text_data = ' '.join(all_words)
     else:
@@ -28,3 +28,4 @@ def app():
 
 
     word_freq = Counter(all_words)
+    word_number = len(book_text.split())

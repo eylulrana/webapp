@@ -43,3 +43,10 @@ elif st_page == "Surah":
 
 
 st.sidebar.markdown("""For more information visit [here](https://www.streamlit.io)""")
+
+
+# Kelime seçimi
+if "word_choice" not in st.session_state:
+    st.session_state["word_choice"] = 'All Words'
+
+word_choice = st.radio("Show:", ('All Words', 'Only Meaningful Words'), key="word_choice")
