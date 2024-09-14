@@ -13,6 +13,8 @@ V1
 - [x] Gözüken site isim ve sembolü değiştirme
 - [x] Stopwords dahil edip etmeme seçeneğini kullanıcıya sunma
 - [x] Statistics sayfası: - Kuran ve sure özelinde ayet sayısı, kelime sayısı, benzersiz kelime sayısı, ortalama ayet uzunluğu, ayet uzunluğu dağılımı görselleştirme
+- [ ] sure okumak için sureyi ve ayetleri görüntüleyebilme
+- [ ] konu bağlantılarını gösteren görsel
 - [ ] varyans, harf sayısı
 - [ ] Word cloud görüntü seçimi
 - [ ] Sure seçimine numaranın yanında isim de ekleme - Farklı dillerde sure isimleri verisi yok, sadece ingilizcede olabilir.
