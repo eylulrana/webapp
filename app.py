@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
-import wc_quran
-import wc_surah
+# import wc_quran
+# import wc_surah
 import st_quran
 import st_surah
 from data_provider import *

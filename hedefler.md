@@ -14,13 +14,14 @@ V1
 - [x] Stopwords dahil edip etmeme seçeneğini kullanıcıya sunma
 - [x] Statistics sayfası: - Kuran ve sure özelinde ayet sayısı, kelime sayısı, benzersiz kelime sayısı, ortalama ayet uzunluğu, ayet uzunluğu dağılımı görselleştirme
 - [ ] sure okumak için sureyi ve ayetleri görüntüleyebilme
-- [ ] konu bağlantılarını gösteren görsel
 - [ ] varyans, harf sayısı
 - [ ] Word cloud görüntü seçimi
 - [ ] Sure seçimine numaranın yanında isim de ekleme - Farklı dillerde sure isimleri verisi yok, sadece ingilizcede olabilir.
 
+
 V2
 
+- [ ] Arc diagram - Node'ların boyutları sayıya göre ayarlanacak - Farklı edge kategorileri eklenecek
 - [ ] Farklı diller ekleme - df'yi csv'ye kaydedince yazı bozuluyor. Csv'leri elle editlemek ya da koda dil desteği eklemek lazım.
 - [ ] Çeviri sayısını arttırma - Çevirirken ayetleri birleştiren ya da not ekleyenlere çözüm gerek.
 - [ ] Duygu analizi
